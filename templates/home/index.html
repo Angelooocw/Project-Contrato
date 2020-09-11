@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock header %}
+
+{% block content %}
+{% include 'includes/content.html' %}
+{% include 'includes/sidebar.html' %}
+{% endblock content %}
+
+
+{% block js %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/browser.min.js' %}"></script>
+	<script src="{% static 'js/breakpoints.min.js' %}"></script>
+	<script src="{% static 'js/util.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock js %}
