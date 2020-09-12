@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock header %}
+
+{% block content %}
+<div id="main">
+    <div class="inner">
+        <header id="header">
+            <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                <li><a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+            </ul>
+        </header>
+        <form method="post" action="#">{% csrf_token %}
+            <h3>Envianos un Mensaje :D</h3>
+            <p>{{ form.full_name }}</p>
+            <p>{{ form.email }}</p>
+            <p>{{ form.mensaje }}</p>
+            <div class="row gtr-uniform">
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% include 'includes/sidebar.html' %}
+{% endblock content %}

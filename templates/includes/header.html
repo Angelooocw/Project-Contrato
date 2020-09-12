@@ -4,17 +4,14 @@
         <h1 style="padding-top: 60px;">Contrato de Obra Pública</h1>
         <div>
             <ul style="display: flex; list-style: none; justify-content:space-around; padding: 1em;">
-                <li>
-                    <h3><a href="#">Rol del Estado y Sus Principios</a></h2>
-                </li>
-                <li>
-                    <h3><a href="#">Rol de la CGR y TdeCP</a></h3>
-                </li>
-                <li>
-                    <h3><a href="#">Acerca de Mi</a></h3>
-                </li>
+
+                {% for ct in navbar %}
+                    <li >
+                        <h3><a href="{% url 'content_app:content-detail' ct.id %}">{{ ct.title }}</a></h3>
+                    </li>
+                {% endfor %}
                 <li >
-                    <h3><a href="#">Contacto</a></h3>
+                    <h3><a href="{% url 'home_app:contact' %}">Contacto</a></h3>
                 </li>
             </ul>
         </div>

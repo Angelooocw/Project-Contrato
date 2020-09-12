@@ -32,6 +32,14 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
+
+def static_lazy(path):
+    from django.templatetags.static import static
+    from django.utils.functional import lazy
+
+    return lazy(lambda: static(path), str)()
+
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -42,6 +50,7 @@ CKEDITOR_CONFIGS = {
             ['Smiley', 'Image', 'Iframe'],
             ['RemoveFormat', 'Source']
         ],
+        'contentsCss': [static_lazy('css/ckeditorstyles.css')],
         'stylesSet': [
         ],
     }

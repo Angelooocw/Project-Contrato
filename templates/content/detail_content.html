@@ -3,7 +3,7 @@
 
 
 {% block header %}
-
+{% include 'includes/header.html' %}
 {% endblock header %}
 
 {% block content %}
@@ -28,8 +28,9 @@
                 <header class="main">
                     <h1>{{ content.title }}</h1>
                 </header>
-
-                <span class="image main"><img src="{{ content.thumbnail_img.url }}" alt="" /></span>
+                {% if content.thumbnail_img %}
+                    <span class="image main"><img src="{{ content.thumbnail_img.url }}" alt="" /></span>
+                {% endif %}
 
                 <p>{{ content.content | safe }}</p>
                 

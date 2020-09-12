@@ -31,4 +31,4 @@ class Content(TimeStampedModel):
         verbose_name_plural = 'Contenidos'
 
     def __str__(self):
-        return self.title
+        return '{} {}'.format(self.id, self.title)
