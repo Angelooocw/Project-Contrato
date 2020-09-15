@@ -24,3 +24,11 @@ class ContactFormView(FormView):
     template_name = 'home/contact.html'
     form_class = ContactForm
     success_url = reverse_lazy('')
+
+    def get_context_data(self, **kwargs):
+        context = super(ContactFormView, self).get_context_data(**kwargs)
+        context['navbar'] = Content.objects.get_content('Información')
+        context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
+        context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
+        context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
+        return context

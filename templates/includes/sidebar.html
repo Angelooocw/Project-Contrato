@@ -1,5 +1,6 @@
-<div id="sidebar">
-    <div class="inner" style="background-image: linear-gradient(to bottom, #eaecd7, #e4e1c6, #e0d6b5, #decaa5, #dcbd96);">
+{% load static %}
+<div id="sidebar" style="background: #eab39d;">
+    <div class="inner">
 
         <!-- Search -->
             <section id="search" class="alt">
@@ -17,27 +18,37 @@
                     <li>
                         <span class="opener"><h3>Responsabilidades</h3></span>
                         <ul>
-                            <li><a href="index.html">Mandante</a></li>
-                            <li><a href="generic.html">Empresas Constructoras</a></li>
-                            <li><a href="elements.html">Profesionales del Area de la Construccion</a></li>
-                            <li><a href="#">Funcionarios Publicos</a></li>
+                            
+                            {% for tema in responsabilidades %}
+                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <span class="opener"><h3>Encargo del Proyecto</h3></span>
                         <ul>
-                            <li><a href="index.html">Etapa de Encargo</a></li>
-                            <li><a href="generic.html">Procesos</a></li>
-                            <li><a href="elements.html">Textos Normativos</a></li>
+                            {% for tema in encargo %}
+                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                            {% endfor %}
                         </ul>
                     </li>
                     <li>
                         <span class="opener"><h3>Inspeccion Tecnica</h3></span>
                         <ul>
-                            <li><a href="index.html">Rol</a></li>
-                            <li><a href="generic.html">Recomendaciones</a></li>
+                            {% for tema in inspeccion %}
+                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                            {% endfor %}
                         </ul>
                     </li>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="generic.html">Generic</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="generic.html">Generic</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="generic.html">Generic</a></li>
+                    <li><a href="elements.html">Elements</a></li>
                 </ul>
             </nav>
 
@@ -48,15 +59,15 @@
                 </header>
                 <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="static/images/pic07.jpg" alt="" /></a>
+                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
                     <article>
-                        <a href="#" class="image"><img src="static/images/pic08.jpg" alt="" /></a>
+                        <a href="#" class="image"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
                     <article>
-                        <a href="#" class="image"><img src="static/images/pic09.jpg" alt="" /></a>
+                        <a href="#" class="image"><img src="{% static 'images/pic09.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
                 </div>
