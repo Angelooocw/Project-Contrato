@@ -1,20 +1,116 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{% block title %}
+	Contrato de obra Pública
+{% endblock title %}
+
+
 {% block header %}
 {% include 'includes/header.html' %}
 {% endblock header %}
 
+
 {% block content %}
-{% include 'includes/home_content.html' %}
+    
+
+<div id="main">
+    
+    <div class="inner">
+        
+        <!-- Header -->
+            {% include 'includes/head_content.html' %}
+
+        <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>Hi, I’m Editorial<br />
+                        by HTML5 UP</h1>
+                        <p>{{ home.title }}</p>
+                    </header>
+                    <p>{{ home.description }}</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button big">Ver Mas</a></li>
+                    </ul>
+                </div>
+                <span class="image object">
+                    <img src="{{ home.image.url }}" alt="" />
+                </span>
+            </section>
+
+        <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2><a href="{% url 'content_app:list-important' %}">Temas Importantes</a></h2>
+                </header>
+                <div class="posts">
+                    
+                    {% for important in importants %}
+                        <article>
+                            <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            <h3>{{ important.title }}</h3>
+                            <p>{{ important.resume }}</p>
+                            <ul class="actions">
+                                <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
+                            </ul>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+    </div>
+</div>
+
 {% include 'includes/sidebar.html' %}
 {% endblock content %}
+    
 
+<div id="main">
+    
+    <div class="inner">
+        
+        <!-- Header -->
+            {% include 'includes/head_content.html' %}
 
-{% block js %}
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-	<script src="{% static 'js/browser.min.js' %}"></script>
-	<script src="{% static 'js/breakpoints.min.js' %}"></script>
-	<script src="{% static 'js/util.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-{% endblock js %}
+        <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h1>Hi, I’m Editorial<br />
+                        by HTML5 UP</h1>
+                        <p>{{ home.title }}</p>
+                    </header>
+                    <p>{{ home.description }}</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button big">Ver Mas</a></li>
+                    </ul>
+                </div>
+                <span class="image object">
+                    <img src="{{ home.image.url }}" alt="" />
+                </span>
+            </section>
+
+        <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2><a href="{% url 'content_app:list-important' %}">Temas Importantes</a></h2>
+                </header>
+                <div class="posts">
+                    
+                    {% for important in importants %}
+                        <article>
+                            <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            <h3>{{ important.title }}</h3>
+                            <p>{{ important.resume }}</p>
+                            <ul class="actions">
+                                <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
+                            </ul>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+    </div>
+</div>

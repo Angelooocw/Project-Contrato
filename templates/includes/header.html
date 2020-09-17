@@ -1,18 +1,62 @@
 {% load static %}
+<style>
+.navbar {
+    overflow: hidden;
+    bottom: 0;
+    width: 100%;
+}
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+.navbar li {
+    padding: 0;
+}
+
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.titulo {
+    padding-top: 40px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 15px;
+}
+@media only screen and (max-width: 450px) {
+    .navbar a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+}
+</style>
+
 <header>
-    <div class="titular" style="width: 100%; background: url({% static 'img/header.jpg' %}); height: 30vh; text-align: center;">
-        <h1 style="padding-top: 60px;">Contrato de Obra Pública</h1>
-        <div>
-            <ul style="display: flex; list-style: none; justify-content:space-around; padding: 1em;">
-                {% for ct in navbar %}
-                    <li >
-                        <h3><a href="{% url 'content_app:content-detail' ct.slug %}">{{ ct.title }}</a></h3>
-                    </li>
-                {% endfor %}
-                
+    <div class="titulo">
+        <h1><a href="{% url 'home_app:home' %}">Contrato de Obra Pública</a></h1>
+        <div class="navbar">
+            <ul style="display: flex; list-style: none; justify-content:space-around; margin: 0; padding: 0;">
+
+            {% for ct in navbar %}
                 <li >
-                    <h3><a href="{% url 'home_app:contact' %}">Contacto</a></h3>
+                    <h3><a href="{% url 'content_app:content-detail' ct.slug %}">{{ ct.title }}</a></h3>
                 </li>
+            {% endfor %}
+            <li >
+                <h3><a href="{% url 'aboutme_app:about-me' %}">Acerca de Mi</a></h3>
+            </li>
+            <li >
+                <h3><a href="{% url 'home_app:contact' %}">Contacto</a></h3>
+            </li>
             </ul>
         </div>
     </div>

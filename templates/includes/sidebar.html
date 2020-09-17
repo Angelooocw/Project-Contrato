@@ -4,7 +4,7 @@
 
         <!-- Search -->
             <section id="search" class="alt">
-                <form method="post" action="#">
+                <form method="post" action="#">{% csrf_token %}
                     <input type="text" name="query" id="query" placeholder="Search" />
                 </form>
             </section>
@@ -33,22 +33,13 @@
                         </ul>
                     </li>
                     <li>
-                        <span class="opener"><h3>Inspeccion Tecnica</h3></span>
+                        <span class="opener"><h3>Inspección Técnica</h3></span>
                         <ul>
                             {% for tema in inspeccion %}
                                 <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li><a href="generic.html">Generic</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li><a href="generic.html">Generic</a></li>
-                    <li><a href="elements.html">Elements</a></li>
-                    <li><a href="index.html">Homepage</a></li>
-                    <li><a href="generic.html">Generic</a></li>
-                    <li><a href="elements.html">Elements</a></li>
                 </ul>
             </nav>
 
@@ -62,12 +53,32 @@
                         <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+            <section>
+                <header class="major">
+                    <h2>Ante interdum</h2>
+                </header>
+                <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="{% static 'images/pic08.jpg' %}" alt="" /></a>
+                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
+                </div>
+                <ul class="actions">
+                    <li><a href="#" class="button">More</a></li>
+                </ul>
+            </section>
+            <section>
+                <header class="major">
+                    <h2>Ante interdum</h2>
+                </header>
+                <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="{% static 'images/pic09.jpg' %}" alt="" /></a>
+                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
                 </div>

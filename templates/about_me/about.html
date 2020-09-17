@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Sobre Mi - contratodeobrapublica.cl
+{% endblock title %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock header %}
+
+
+{% block content %}
+<style>
+    body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 2em;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.card2:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+
+<div id="main">
+    <div class="inner">
+        <!-- Header -->
+        {% include 'includes/head_content.html' %}
+        <!-- Content -->
+
+        <h2>Acerca de Mi</h2>
+        <div class="row">
+            <div class="col-4 col-12-small col-4-medium">
+                <div class="card">
+                    <img src="{% static 'img/perfil.png' %}" alt="Jane" style="width:100%">
+                    <div class="container">
+                        <h2 style="text-align: center;">Gilda Zumelzu Delgado</h2>
+                        <p>CEO & Founder</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <h3>Biografia</h3>
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Peritajes</h2>
+            </header>
+            <div class="">
+                <div class="box">
+                    <p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <header class="major">
+                <h2>Publicaciones</h2>
+            </header>
+            <!-- <div style="display: flex; flex-wrap: wrap;"> -->
+            <div class="row">
+                <div class="col-4 col-6-small col-4-medium">
+                    <div class="card2">
+                        <img src= "{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">
+                        <div class="container">
+                        <h4><b>John Doe</b></h4>
+                        <p>Architect & Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% include 'includes/sidebar.html' %}
+{% endblock content %}
+    

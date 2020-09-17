@@ -17,6 +17,9 @@ class HomePageView(TemplateView):
         context['home'] = Home.objects.filter().order_by('-created').first()
         context['importants'] = Content.objects.get_content('Importante')
         context['navbar'] = Content.objects.get_content('Información')
+        context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
+        context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
+        context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
         return context
 
 

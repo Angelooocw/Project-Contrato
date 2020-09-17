@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock header %}
+
+
+{% block content %}
+
+<div id="main">
+    <div class="inner">
+
+        <!-- Header -->
+        {% include 'includes/head_content.html' %}
+
+        <!-- Content -->
+        <h2>Temas Importantes</h2>
+        
+        {% for imp in important_list %}
+            
+            <div class="row">
+                <div class="col-4 col-12-small col-4-medium">
+                    <span class="image fit">
+                        <img src="{{ imp.thumbnail_img.url }}" alt="" />
+                    </span>
+                </div>
+                <div class="col-8 col-12-small col-8-medium">
+                    <a href="{% url 'content_app:content-detail' imp.slug %}"><h3>{{ imp.title }}</h3></a>
+                    <p>{{ imp.resume | truncatechars:300 }}</p>
+                </div>
+            </div>
+        {% endfor %}       
+    </div>
+</div>
+
+{% include 'includes/sidebar.html' %}
+{% endblock content %}
