@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    Temas Importantes - contratodeobrapublica.cl
+{% endblock title %}
 
 {% block header %}
 {% include 'includes/header.html' %}
@@ -31,7 +34,31 @@
                     <p>{{ imp.resume | truncatechars:300 }}</p>
                 </div>
             </div>
-        {% endfor %}       
+        {% endfor %}
+        <div style="display: flex; justify-content: center;">
+            {% if is_paginated %}
+                <ul class="pagination">
+                    
+                    {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="button">Prev</a></li>
+                    {% endif %}
+
+                    {% for page in paginator.page_range %}
+                        {% if page == page_obj.number %}
+                            <li><a href="#" class="page active">{{page_obj.number}}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ page }}" style="margin: 1rem;">{{ page }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="button">Next</a></li>
+                    {% endif %}
+                        
+                </ul>
+            {% endif %}
+        </div>
+            
     </div>
 </div>
 

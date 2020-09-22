@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Sobre Mi - contratodeobrapublica.cl
+{% endblock title %}
+
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock header %}
+
+
+{% block content %}
+
+<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+    
+    html {
+      box-sizing: border-box;
+    }
+    
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      margin: 8px;
+    }
+    .card2 {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 2em;
+    }
+    .about-section {
+      padding: 50px;
+      text-align: center;
+      background-color: #474e5d;
+      color: white;
+    }
+    
+    .container {
+      padding: 0 16px;
+    }
+    
+    .container::after, .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    .title {
+      color: grey;
+    }
+    
+    .card2:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    img {
+      border-radius: 5px 5px 0 0;
+    }
+    
+    
+    @media screen and (max-width: 650px) {
+      .column {
+        width: 100%;
+        display: block;
+      }
+    }
+</style>
+
+<div id="main">
+    <div class="inner">
+        <!-- Header -->
+        {% include 'includes/head_content.html' %}
+        <!-- Content -->
+
+        <h2>Acerca de Mi</h2>
+        <div class="row">
+            <div class="col-4 col-12-small col-4-medium">
+                <div class="card">
+                    {% if data.foto_perfil %}
+                        <img src="{{ data.foto_perfil.url }}" alt="Gilda" style="width:100%">
+                    {% else %}
+                        <img src="{% static 'img/perfil.png' %}" alt="Gilda" style="width:100%">
+                    {% endif %}
+                    <div class="container">
+                        <h3 style="text-align: center;">Gilda Zumelzu Delgado</h2>
+                        <h4 style="text-align: center;">Asesoría Profesional y Capacitación</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 col-12-small">
+                <h3>Biografía</h3>
+                <p>{{ data.biography | safe }}</p>
+                <ul class="actions" style="justify-content: end;">
+                    <li><a href="{% url 'content_app:content-detail' 'sobre-mi' %}" class="button big">Ver Mas</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Section -->
+        <section>
+            <header class="major">
+                <h2>Peritajes y Fallos</h2>
+                
+            </header>
+            <div class="">
+                <div class="box">
+                    <ul>
+                        {% for fallo in fallos %}
+                            <a href="{{ fallo.file.url }}"><li>{{ fallo.title }}</li></a>
+                        {% endfor %}    
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <header class="major">
+                <h2>Publicaciones</h2>
+            </header>
+            <!-- <div style="display: flex; flex-wrap: wrap;"> -->
+            <div class="row">
+                <div class="col-4 col-6-small col-4-medium">
+                    <div class="card2">
+                        <img src= "{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">
+                        <div class="container">
+                        <h4><b>John Doe</b></h4>
+                        <p>Architect & Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                {% for publicacion in publicaciones %}
+                    <div class="col-4 col-6-small col-4-medium">
+                        <div class="card2">
+                            <img src= "{{ publicacion.picture.url }}" alt="publicacion" style="width:100%">
+                            <div class="container">
+                                <h4><b>{{ publicacion.title }}</b></h4>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                    
+                
+            </div>
+        </section>
+    </div>
+</div>    
+
+{% include 'includes/sidebar.html' %}
+{% endblock content %}

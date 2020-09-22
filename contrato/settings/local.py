@@ -46,7 +46,7 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'],
             ['TextColor', 'Format', 'FontSize', 'Link'],
-            ['Smiley', 'Image', 'Iframe', 'Table'],
+            ['Smiley', 'Image', 'Iframe', 'Table', 'Blockquote'],
             ['RemoveFormat', 'Source']
         ],
         'contentsCss': [static_lazy('css/ckeditorstyles.css')],

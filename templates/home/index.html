@@ -47,7 +47,10 @@
                 {% endif %}
                 
             </section>
-
+                <ul class="actions fit">
+                    <li><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button fit">Obra Pública</a></li>
+                    <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button fit">Contrato de Obra Pública</a></li>
+                </ul>
         <!-- Section -->
             <section>
                 <header class="major">
@@ -59,7 +62,7 @@
                         <article>
                             <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
                             <h3>{{ important.title }}</h3>
-                            <p>{{ important.resume }}</p>
+                            <p>{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
                                 <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
                             </ul>

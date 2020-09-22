@@ -16,6 +16,18 @@ class Fallo(TimeStampedModel):
         return self.title
 
 
+class Publicacion(TimeStampedModel):
+    title = models.CharField('titulo', max_length=100)
+    picture = models.ImageField('imagen', upload_to='Publicacion')
+
+    class Meta:
+        verbose_name = 'Publicacion'
+        verbose_name_plural = 'Publicaciones'
+
+    def __str__(self):
+        return self.title
+
+
 class Perfil(TimeStampedModel):
     foto_perfil = models.ImageField('imagen de perfil', upload_to='Profile')
     biography = RichTextUploadingField('biografia')

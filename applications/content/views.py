@@ -14,7 +14,7 @@ class ContentView(DetailView):
         context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
         context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
         context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
-        #context['contenido'] = Content.objects.get_detailed_data(self.kwargs['title'])
+        context['info'] = Content.objects.get_content('info_sidebar')
         return context
 
 
@@ -22,7 +22,7 @@ class ImportantListView(ListView):
     model = Content
     template_name = 'content/important_list.html'
     context_object_name = 'important_list'
-    paginate_by = 8
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super(ImportantListView, self).get_context_data(**kwargs)
@@ -30,6 +30,7 @@ class ImportantListView(ListView):
         context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
         context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
         context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
+        context['info'] = Content.objects.get_content('info_sidebar')
         return context
 
     def get_queryset(self):
