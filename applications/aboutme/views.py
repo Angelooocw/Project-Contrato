@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from applications.content.models import Content
-from .models import Perfil
+#from .models import Perfil
 
 
 class AboutMeView(TemplateView):
@@ -11,7 +11,7 @@ class AboutMeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AboutMeView, self).get_context_data(**kwargs)
         context['navbar'] = Content.objects.get_content('Información')
-        context['data'] = Perfil.objects.filter().order_by('-created').first()
+        #context['data'] = Perfil.objects.filter().order_by('-created').first()
         context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
         context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
         context['inspeccion'] = Content.objects.get_content('Inspección Técnica')

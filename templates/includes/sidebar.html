@@ -45,32 +45,40 @@
 
         <!-- Section -->
             <section>
-                <header class="major">
-                    <h2>Ante interdum</h2>
-                </header>
-                <div class="mini-posts">
-                    <article>
-                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
-                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                    </article>
-                </div>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        {% for tema in info %}
+                            <li><a href="{% url 'content_app:content-detail' tema.slug %}"><h3>{{ tema.title }}</h3></a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
             </section>
             <section>
-                <header class="major">
-                    <h2>Ante interdum</h2>
-                </header>
-                <div class="mini-posts">
-                    <article>
-                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
-                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                    </article>
-                </div>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Principales Modalidades de Contratación</h2>
+                    </header>
+                    <ul>
+                        <li><a href="{% url 'content_app:content-detail' 'a-suma-alzada' %}">A Suma Alzada</a></li>
+                        <li><a href="{% url 'content_app:content-detail' 'a-serie-de-precios-unitarios' %}">A Serie de Precios Unitarios</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section>
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Obras Públicas</h2>
+                    </header>
+                    <ul>
+                        <li><a href="{% url 'content_app:content-detail' 'servicios-de-salud' %}">Servicios de Salud</a></li>
+                        <li><a href="{% url 'content_app:content-detail' 'municipalidades' %}">Municipalidades</a></li>
+                        <li><a href="{% url 'content_app:content-detail' 'serviu' %}">SERVIU</a></li>
+                        <li><a href="{% url 'content_app:content-detail' 'mop' %}">MOP</a></li>
+                    </ul>
+                </nav>
             </section>
             <section>
                 <header class="major">

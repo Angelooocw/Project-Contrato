@@ -32,12 +32,20 @@
                     </header>
                     <p>{{ home.description }}</p>
                     <ul class="actions">
-                        <li><a href="#" class="button big">Ver Mas</a></li>
+                        <li><a href="{% url 'content_app:content-detail' 'gilda-zumelzu-delgado' %}" class="button big">Ver Mas</a></li>
                     </ul>
                 </div>
-                <span class="image object">
-                    <img src="{{ home.image.url }}" alt="" />
-                </span>
+                
+                {% if home.image %}
+                    <span class="image object">
+                        <img src="{{ home.image.url }}" alt="" />
+                        <div class="info-img">
+                            <h2 style="color: aliceblue; text-align: center;">Gilda Zumelzu Delgado</h2>
+                            <h3 style="color: aliceblue; text-align: center;">Asesoría Profesional y Capacitación</h3>
+                        </div>
+                    </span>
+                {% endif %}
+                
             </section>
 
         <!-- Section -->

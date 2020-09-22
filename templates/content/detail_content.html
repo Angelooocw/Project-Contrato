@@ -27,16 +27,11 @@
                 {% if content.thumbnail_img %}
                     <span class="image main"><img src="{{ content.thumbnail_img.url }}" alt="" /></span>
                 {% endif %}
-
-                <p>{{ content.content | safe }}</p>
-                
-                <hr class="major" />
+                <div style="font-size:1.4em">
+                    {{ content.content | safe }}
+                </div>
 
             </section>
-
-            <section>
-            </section>
-
     </div>
 </div>
 
