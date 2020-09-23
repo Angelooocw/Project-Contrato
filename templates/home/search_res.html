@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+	Contrato de obra Pública
+{% endblock title %}
+
+
+{% block header %}
+{% include 'includes/header2.html' %}
+{% endblock header %}
+
+
+{% block content %}
+
+<div id="main">
+    <div class="inner">
+
+        <!-- Header -->
+        {% include 'includes/head_content.html' %}
+
+        
+        
+        {% if list_res %}
+            <h2>Resultados de la busqueda</h2>
+            {% for res in list_res %}
+                <div>
+                    <a href="{% url 'content_app:content-detail' res.slug %}"><h3>{{ res.title }}</h3></a>
+                    <p>{{ res.resume | truncatechars:300 }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>No se han encontrado resultados para tu busqueda :(</h2>
+        {% endif %}
+
+    </div>
+</div>
+
+
+
+{% include 'includes/sidebar.html' %}
+{% endblock content %}

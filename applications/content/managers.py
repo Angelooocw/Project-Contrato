@@ -8,7 +8,7 @@ class ContentManager(models.Manager):
             category__name=category
         )
         if category == 'Importante':
-            return result.order_by('-created')[:6]
+            return result.order_by('-created')[:4]
         else:
             return result.order_by('id')
 

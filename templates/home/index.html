@@ -8,7 +8,7 @@
 
 
 {% block header %}
-{% include 'includes/header.html' %}
+{% include 'includes/header2.html' %}
 {% endblock header %}
 
 
@@ -71,42 +71,9 @@
                 </div>
             </section>
 
-    </div>
-</div>
-
-{% include 'includes/sidebar.html' %}
-{% endblock content %}
-    
-
-<div id="main">
-    
-    <div class="inner">
-        
-        <!-- Header -->
-            {% include 'includes/head_content.html' %}
-
-        <!-- Banner -->
-            <section id="banner">
-                <div class="content">
-                    <header>
-                        <h1>Hi, I’m Editorial<br />
-                        by HTML5 UP</h1>
-                        <p>{{ home.title }}</p>
-                    </header>
-                    <p>{{ home.description }}</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button big">Ver Mas</a></li>
-                    </ul>
-                </div>
-                <span class="image object">
-                    <img src="{{ home.image.url }}" alt="" />
-                </span>
-            </section>
-
-        <!-- Section -->
             <section>
                 <header class="major">
-                    <h2><a href="{% url 'content_app:list-important' %}">Temas Importantes</a></h2>
+                    <h2><a href="{% url 'content_app:list-important' %}">Capacitaciones</a></h2>
                 </header>
                 <div class="posts">
                     
@@ -114,7 +81,7 @@
                         <article>
                             <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
                             <h3>{{ important.title }}</h3>
-                            <p>{{ important.resume }}</p>
+                            <p>{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
                                 <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
                             </ul>
@@ -125,3 +92,6 @@
 
     </div>
 </div>
+
+{% include 'includes/sidebar.html' %}
+{% endblock content %}

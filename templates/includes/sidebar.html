@@ -4,8 +4,8 @@
 
         <!-- Search -->
             <section id="search" class="alt">
-                <form method="post" action="#">{% csrf_token %}
-                    <input type="text" name="query" id="query" placeholder="Search" />
+                <form method="GET" action="{% url 'home_app:search' %}">{% csrf_token %}
+                    <input type="search" name="kword" id="kword" placeholder="Buscar" />
                 </form>
             </section>
 
@@ -86,7 +86,7 @@
                 </header>
                 <div class="mini-posts">
                     <article>
-                        <a href="#" class="image"><img src="{% static 'images/pic07.jpg' %}" alt="" /></a>
+                        <iframe width="100%" src="https://www.youtube.com/embed/eW7Twd85m2g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
                     </article>
                 </div>
@@ -100,18 +100,15 @@
                 <header class="major">
                     <h2>Get in touch</h2>
                 </header>
-                <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
                 <ul class="contact">
-                    <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-                    <li class="icon solid fa-phone">(000) 000-0000</li>
-                    <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-                    Nashville, TN 00000-0000</li>
+                    <li class="icon solid fa-envelope">Gilda@contratodeobrapublica.cl</li>
+                    <li class="icon solid fa-phone">9 93 45 68 69</li>
                 </ul>
             </section>
 
         <!-- Footer -->
             <footer id="footer">
-                <p class="copyright">Todos los Derechos Reservados <br>Registro de Propiedad Intelectual N° 238.274 © Gilda Zumelzu Delgado – Año 2014.<br>Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                <p class="copyright">Todos los Derechos Reservados <br>Registro de Propiedad Intelectual N° 238.274 © Gilda Zumelzu Delgado – Año 2020.</p>
             </footer>
     </div>
 </div>
