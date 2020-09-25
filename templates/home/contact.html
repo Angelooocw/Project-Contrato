@@ -1,28 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
+{% block title %}
+    Contacto - contratodeobrapublica.cl
+{% endblock title %}
+    
+
 {% block header %}
-{% include 'includes/header.html' %}
+{% include 'includes/header2.html' %}
 {% endblock header %}
 
 {% block content %}
+<style>
+    .contact p {
+        font-size: 1.2rem;
+    }
+</style>
 <div id="main">
     <div class="inner">
         {% include 'includes/head_content.html' %}
-        <form method="post" action="#">{% csrf_token %}
-            <h3>Envianos un Mensaje :D</h3>
-            <p>{{ form.full_name }}</p>
-            <p>{{ form.email }}</p>
-            <p>{{ form.mensaje }}</p>
-            <div class="row gtr-uniform">
-                <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="submit" value="Send Message" class="primary" /></li>
-                        <li><input type="reset" value="Reset" /></li>
-                    </ul>
-                </div>
-            </div>
-        </form>
+        <div class="contact">
+            <h2 style="text-align: center;">Quien lee esta pagina web: Dirige <br>
+            Quien lee esta pagina web: Decide</h2>
+            <p style="font-size: 1.1rem;">
+                Lo mas importante que usted recibe no viene en una caja, no se puede encargar, no tiene numero de serie
+                y ni siquiera aparece en una factura.
+            </p>
+            <p>
+                Pero llega de todas maneras cada vez que Ud. solicita la Asesoria Profesional en "Contratos de Obra Pública"
+            </p>
+            <p>
+                <strong>¿Qué es lo que Ud. recibe cuando solicita esta Asesoría? <br></strong>
+                Fijese en los efectos que ha ocasionado. La respuesta se refleja en sus rostros
+            </p>
+            <p>
+                "El tiempo que he invertido en formación y práctica, en organización, crecimiento y experiencia interpretativa, puede ser uno de
+                sus más valiosos activos, para extremar el celo funcionario y garantizar el principio del debido resguardo de los recursos públicos
+                y desarrollar su labor acorde a los principios de responsabilidad, eficiencia, eficacia, probidad y control entre otros. 
+                Ley 18.575 art5° y 3° inciso segundo."
+            </p>
+        </div>
     </div>
 </div>
 {% include 'includes/sidebar.html' %}

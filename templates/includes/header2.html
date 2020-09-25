@@ -1,7 +1,6 @@
 {% load static %}
 <style>
     .slider {
-  height: 200px;
   position: relative;
 }
 .slide1,.slide2,.slide3,.slide4,.slide5 {
@@ -85,6 +84,14 @@
     color: white;
     font-size: 15px;
 }
+.logos, a {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: none;
+}
+.logos img {
+  margin: auto 2rem auto 2rem;
+}
 @media only screen and (max-width: 450px) {
     .navbar a {
         float: left;
@@ -94,7 +101,11 @@
         text-decoration: none;
         font-size: 14px;
     }
+    .logos img {
+      margin: auto 0 auto 0;
+    }
 }
+
 </style>
 
 
@@ -103,11 +114,10 @@
         <div class='slide1'></div>
         <div class='slide2'></div>
         <div class='slide3'></div>
-        <div class="titulo">
-            <div style="display: flex; justify-content: space-around;">
-                <img src="{% static 'img/personas.png' %}" alt="" style="height: 100px;">
-                <h1><a href="{% url 'home_app:home' %}">Contrato de Obra Pública</a></h1>
-                <img src="{% static 'img/bandera.gif' %}" alt="" style="height: 100px;">
+        
+            <div class="logos">
+                <a href="{% url 'home_app:home' %}"><img src="{% static 'img/personas.png' %}" alt="" style="height: 100%;"></a>
+                <img src="{% static 'img/bandera.gif' %}" alt="" style="height: 100px; opacity: 0.5;">
             </div>
             
             <div class="navbar">
@@ -126,6 +136,6 @@
                 </li>
                 </ul>
             </div>
-        </div>
+        
     </div>
 </header>
