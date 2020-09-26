@@ -35,6 +35,7 @@ class ContactFormView(FormView):
         context['responsabilidades'] = Content.objects.get_content('Responsabilidades')
         context['encargo'] = Content.objects.get_content('Encargo del Proyecto')
         context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
+        context['info'] = Content.objects.get_content('info_sidebar')
         return context
 
 

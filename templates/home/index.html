@@ -8,7 +8,7 @@
 
 
 {% block header %}
-{% include 'includes/header2.html' %}
+{% include 'includes/header.html' %}
 {% endblock header %}
 
 
@@ -51,9 +51,15 @@
                 </ul>
         <!-- Section -->
             <section>
-                <header class="major">
-                    <h2><a href="{% url 'content_app:list-important' %}">Temas Importantes</a></h2>
-                </header>
+                <div style="display: flex;">
+                    <header class="major">
+                        <h2><a href="{% url 'content_app:list-important' %}">Temas Importantes</a></h2>
+                    </header>
+                    <div style="margin-left: 2rem;">
+                        <a href="{% url 'content_app:list-important' %}" class="button">Ver todo</a>
+                    </div>
+                </div>
+                
                 <div class="posts">
                     
                     {% for important in importants %}
@@ -62,7 +68,7 @@
                             <h3>{{ important.title }}</h3>
                             <p>{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
-                                <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
+                                <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">Ver Mas</a></li>
                             </ul>
                         </article>
                     {% endfor %}
@@ -71,7 +77,7 @@
 
             <section>
                 <header class="major">
-                    <h2><a href="{% url 'content_app:list-important' %}">Capacitaciones</a></h2>
+                    <h2><a href="{% url 'content_app:list-important' %}">Capacitación en Contratos de Obra Pública</a></h2>
                 </header>
                 <div class="posts">
                     

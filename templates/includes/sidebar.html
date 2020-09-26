@@ -11,14 +11,10 @@
 
         <!-- Menu -->
             <nav id="menu">
-                <header class="major">
-                    <h2>Menu</h2>
-                </header>
                 <ul>
                     <li>
                         <span class="opener"><h3>Responsabilidades</h3></span>
                         <ul>
-                            
                             {% for tema in responsabilidades %}
                                 <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
                             {% endfor %}
@@ -46,9 +42,6 @@
         <!-- Section -->
             <section>
                 <nav id="menu">
-                    <header class="major">
-                        <h2>Menu</h2>
-                    </header>
                     <ul>
                         {% for tema in info %}
                             <li><a href="{% url 'content_app:content-detail' tema.slug %}"><h3>{{ tema.title }}</h3></a></li>
