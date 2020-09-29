@@ -14,7 +14,13 @@
 
 {% block content %}
     
-
+<style>
+    @media only screen and (max-width: 460px) {
+        .actions.fit{
+            display: block;
+        }
+    }
+</style>
 <div id="main">
     
     <div class="inner">
@@ -46,9 +52,10 @@
                 
             </section>
                 <ul class="actions fit">
-                    <li><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button fit">Obra Pública</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button fit">Obra Pública</a></li>
                     <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button fit">Contrato de Obra Pública</a></li>
                 </ul>
+                
         <!-- Section -->
             <section>
                 <div style="display: flex;">

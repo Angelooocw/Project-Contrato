@@ -86,7 +86,11 @@
 .logos img {
   margin: auto 2rem auto 2rem;
 }
-@media only screen and (max-width: 450px) {
+.logos #flag {
+  height: 6.25rem;
+  opacity: 0.5;
+}
+@media only screen and (max-width: 484px) {
     .navbar a {
         float: left;
         text-align: center;
@@ -96,6 +100,10 @@
     }
     .logos img {
       margin: auto 0 auto 0;
+    }
+    .logos #flag {
+      height: 5rem;
+      opacity: 0.5;
     }
 }
 
@@ -110,7 +118,7 @@
         
             <div class="logos">
                 <a href="{% url 'home_app:home' %}"><img src="{% static 'img/personas.png' %}" alt="" style="height: 100%;"></a>
-                <img src="{% static 'img/bandera.gif' %}" alt="" style="height: 100px; opacity: 0.5;">
+                <img id="flag" src="{% static 'img/bandera.gif' %}" alt="">
             </div>
             
             <div class="navbar">
