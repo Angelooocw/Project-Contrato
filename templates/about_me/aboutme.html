@@ -17,15 +17,12 @@
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
     }
-    
     html {
       box-sizing: border-box;
     }
-    
     *, *:before, *:after {
       box-sizing: inherit;
     }
-    
     .card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       margin: 8px;
@@ -43,30 +40,23 @@
       background-color: #474e5d;
       color: white;
     }
-    
     .container {
       padding: 0 16px;
     }
-    
     .container::after, .row::after {
       content: "";
       clear: both;
       display: table;
     }
-    
     .title {
       color: grey;
     }
-    
     .card2:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
-    
     img {
       border-radius: 5px 5px 0 0;
     }
-    
-    
     @media screen and (max-width: 650px) {
       .column {
         width: 100%;
@@ -80,8 +70,9 @@
         <!-- Header -->
         {% include 'includes/head_content.html' %}
         <!-- Content -->
-
-        <h2>Acerca de Mi</h2>
+        <header class="major">
+          <h2 style="margin-top: 1rem; margin-bottom: 1.5rem;">Acerca de Mi</h2>
+        </header>
         <div class="row">
             <div class="col-4 col-12-small col-4-medium">
                 <div class="card">
@@ -105,10 +96,9 @@
             </div>
         </div>
         <!-- Section -->
-        <section>
+        <section style="padding-top: 1rem;">
             <header class="major">
                 <h2>Fallos</h2>
-                
             </header>
             <div class="">
                 <div class="box">

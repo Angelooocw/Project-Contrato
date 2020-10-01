@@ -15,9 +15,19 @@
 {% block content %}
     
 <style>
+    .actions.fit {
+        font-size: 1.3rem;
+    }
+    @media only screen and (max-width: 700px) {
+        .actions.fit{
+            display: block;
+            font-size: 1.3rem;
+        }
+    }
     @media only screen and (max-width: 460px) {
         .actions.fit{
             display: block;
+            font-size: 1rem;
         }
     }
 </style>
@@ -34,7 +44,7 @@
                     <header>
                         <h1>{{ home.title }}</h1>
                     </header>
-                    <p>{{ home.description }}</p>
+                    <p style="text-align: justify; text-justify:auto;">{{ home.description }}</p>
                     <ul class="actions">
                         <li><a href="{% url 'content_app:content-detail' 'gilda-zumelzu-delgado' %}" class="button big">Ver Mas</a></li>
                     </ul>
@@ -44,16 +54,16 @@
                     <span class="image object">
                         <img src="{{ home.image.url }}" alt="" />
                         <div class="info-img">
-                            <h2 style="color: aliceblue; text-align: center;">Gilda Zumelzu Delgado</h2>
-                            <h3 style="color: aliceblue; text-align: center;">Asesoría Profesional y Capacitación</h3>
+                            <h3 style="color: aliceblue; text-align: center;">Gilda Zumelzu Delgado</h2>
+                            <h4 style="color: aliceblue; text-align: center;">Asesoría Profesional y Capacitación</h3>
                         </div>
                     </span>
                 {% endif %}
                 
             </section>
                 <ul class="actions fit">
-                    <li style="margin-bottom: 0.5rem;"><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button fit">Obra Pública</a></li>
-                    <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button fit">Contrato de Obra Pública</a></li>
+                    <li style="margin-bottom: 0.5rem;"><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button primary fit">Obra Pública</a></li>
+                    <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button primary fit">Contrato de Obra Pública</a></li>
                 </ul>
                 
         <!-- Section -->
@@ -73,7 +83,7 @@
                         <article>
                             <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
                             <h3>{{ important.title }}</h3>
-                            <p>{{ important.resume | truncatechars:300 }}</p>
+                            <p style="text-align: justify; text-justify:auto;">{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
                                 <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">Ver Mas</a></li>
                             </ul>
@@ -92,7 +102,7 @@
                         <article>
                             <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
                             <h3>{{ important.title }}</h3>
-                            <p>{{ important.resume | truncatechars:300 }}</p>
+                            <p style="text-align: justify; text-justify:auto;">{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
                                 <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
                             </ul>

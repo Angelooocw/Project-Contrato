@@ -1,107 +1,119 @@
 {% load static %}
-<div id="sidebar" style="background: #eab39d;">
+<style>
+    section {
+      border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+      margin: 0 0 2.5em 0;
+      padding: 0 0 2.5em 0; 
+    }
+</style>
+<div id="sidebar" style="background: #ecc4b4;">
     <div class="inner">
 
         <!-- Search -->
-            <section id="search" class="alt">
+            <section id="search" class="alt" style="margin-bottom: 1rem;">
                 <form method="GET" action="{% url 'home_app:search' %}">{% csrf_token %}
                     <input type="search" name="kword" id="kword" placeholder="Buscar" />
                 </form>
             </section>
 
-        <!-- Menu -->
-            <nav id="menu">
-                <ul>
-                    <li>
-                        <span class="opener"><h3>Responsabilidades</h3></span>
+            <div class="alt">
+                <!-- Menu -->
+                <section>
+                    <nav id="menu">
                         <ul>
-                            {% for tema in responsabilidades %}
-                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
-                            {% endfor %}
+                            <li>
+                                <span class="opener"><h3>Responsabilidades</h3></span>
+                                <ul>
+                                    {% for tema in responsabilidades %}
+                                        <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="opener"><h3>Encargo del Proyecto</h3></span>
+                                <ul>
+                                    {% for tema in encargo %}
+                                        <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="opener"><h3>Inspección Técnica</h3></span>
+                                <ul>
+                                    {% for tema in inspeccion %}
+                                        <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
+                                    {% endfor %}
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li>
-                        <span class="opener"><h3>Encargo del Proyecto</h3></span>
-                        <ul>
-                            {% for tema in encargo %}
-                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener"><h3>Inspección Técnica</h3></span>
-                        <ul>
-                            {% for tema in inspeccion %}
-                                <li><a href="{% url 'content_app:content-detail' tema.slug %}">{{tema.title}}</a></li>    
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+                    </nav>
+                </section>
 
-        <!-- Section -->
-            <section>
-                <nav id="menu">
-                    <ul>
-                        {% for tema in info %}
-                            <li><a href="{% url 'content_app:content-detail' tema.slug %}"><h3>{{ tema.title }}</h3></a></li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-            </section>
-            <section>
-                <nav id="menu">
+            <!-- Section -->
+                    <nav id="menu">
+                        <ul>
+                            {% for tema in info %}
+                                <li><a href="{% url 'content_app:content-detail' tema.slug %}"><h3>{{ tema.title }}</h3></a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+            </div>
+
+            <div class="alt" style="background: #ecc4b4;">
+                <section>
+                    <nav id="menu">
+                        <header class="major">
+                            <h2>Principales Modalidades de Contratación</h2>
+                        </header>
+                        <ul>
+                            <li><a href="{% url 'content_app:content-detail' 'a-suma-alzada' %}">A Suma Alzada</a></li>
+                            <li><a href="{% url 'content_app:content-detail' 'a-serie-de-precios-unitarios' %}">A Serie de Precios Unitarios</a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section>
+                    <nav id="menu">
+                        <header class="major">
+                            <h2>Obras Públicas</h2>
+                        </header>
+                        <ul>
+                            <li><a href="{% url 'content_app:content-detail' 'servicios-de-salud' %}">Servicios de Salud</a></li>
+                            <li><a href="{% url 'content_app:content-detail' 'municipalidades' %}">Municipalidades</a></li>
+                            <li><a href="{% url 'content_app:content-detail' 'serviu' %}">SERVIU</a></li>
+                            <li><a href="{% url 'content_app:content-detail' 'mop' %}">MOP</a></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section>
                     <header class="major">
-                        <h2>Principales Modalidades de Contratación</h2>
+                        <h2>Ante interdum</h2>
                     </header>
-                    <ul>
-                        <li><a href="{% url 'content_app:content-detail' 'a-suma-alzada' %}">A Suma Alzada</a></li>
-                        <li><a href="{% url 'content_app:content-detail' 'a-serie-de-precios-unitarios' %}">A Serie de Precios Unitarios</a></li>
+                    <div class="mini-posts">
+                        <article>
+                            <iframe width="100%" src="https://www.youtube.com/embed/eW7Twd85m2g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                        </article>
+                    </div>
+                    <ul class="actions">
+                        <li><a href="#" class="button">More</a></li>
                     </ul>
-                </nav>
-            </section>
-            <section>
-                <nav id="menu">
+                </section>
+    
+            <!-- Section -->
+                <section>
                     <header class="major">
-                        <h2>Obras Públicas</h2>
+                        <h2>Get in touch</h2>
                     </header>
-                    <ul>
-                        <li><a href="{% url 'content_app:content-detail' 'servicios-de-salud' %}">Servicios de Salud</a></li>
-                        <li><a href="{% url 'content_app:content-detail' 'municipalidades' %}">Municipalidades</a></li>
-                        <li><a href="{% url 'content_app:content-detail' 'serviu' %}">SERVIU</a></li>
-                        <li><a href="{% url 'content_app:content-detail' 'mop' %}">MOP</a></li>
+                    <ul class="contact">
+                        <li class="icon solid fa-envelope">Gilda@contratodeobrapublica.cl</li>
+                        <li class="icon solid fa-phone">9 93 45 68 69</li>
                     </ul>
-                </nav>
-            </section>
-            <section>
-                <header class="major">
-                    <h2>Ante interdum</h2>
-                </header>
-                <div class="mini-posts">
-                    <article>
-                        <iframe width="100%" src="https://www.youtube.com/embed/eW7Twd85m2g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                    </article>
-                </div>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </section>
-
-        <!-- Section -->
-            <section>
-                <header class="major">
-                    <h2>Get in touch</h2>
-                </header>
-                <ul class="contact">
-                    <li class="icon solid fa-envelope">Gilda@contratodeobrapublica.cl</li>
-                    <li class="icon solid fa-phone">9 93 45 68 69</li>
-                </ul>
-            </section>
-
-        <!-- Footer -->
-            <footer id="footer">
-                <p class="copyright">Todos los Derechos Reservados <br>Registro de Propiedad Intelectual N° 238.274 © Gilda Zumelzu Delgado – Año 2020.</p>
-            </footer>
+                </section>
+    
+            <!-- Footer -->
+                <footer id="footer">
+                    <p class="copyright">Todos los Derechos Reservados <br>Registro de Propiedad Intelectual N° 238.274 © Gilda Zumelzu Delgado – Año 2020.</p>
+                </footer>
+            </div>
     </div>
 </div>

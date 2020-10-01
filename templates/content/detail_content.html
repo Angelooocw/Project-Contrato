@@ -22,12 +22,12 @@
 
             <section>
                 <header class="main">
-                    <h1>{{ content.title }}</h1>
+                    <h1 style="color: #005a39;">{{ content.title }}</h1>
                 </header>
                 {% if content.thumbnail_img %}
                     <span class="image main"><img src="{{ content.thumbnail_img.url }}" alt="" /></span>
                 {% endif %}
-                <div style="font-size:1.4em">
+                <div style="font-size:1.4em; text-align: justify; text-justify:auto;">
                     {{ content.content | safe }}
                 </div>
 
