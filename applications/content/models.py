@@ -20,7 +20,7 @@ class Category(TimeStampedModel):
 
 class Content(TimeStampedModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField('Título', max_length=50)
+    title = models.CharField('Título', max_length=100)
     short_title = models.CharField('Titulo corto', max_length=30, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     thumbnail_img = models.ImageField('Imagen', upload_to='Content', blank=True)

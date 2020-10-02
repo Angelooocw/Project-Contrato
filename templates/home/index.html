@@ -2,6 +2,13 @@
 {% load static %}
 
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+{% endblock head %}
+    
+
 {% block title %}
 	Contrato de obra Pública
 {% endblock title %}
@@ -31,12 +38,16 @@
         }
     }
 </style>
+
 <div id="main">
     
     <div class="inner">
         
         <!-- Header -->
             {% include 'includes/head_content.html' %}
+
+        <!-- carousel -->
+            {% include 'includes/carousel.html' %}
 
         <!-- Banner -->
             <section id="banner">
@@ -61,10 +72,10 @@
                 {% endif %}
                 
             </section>
-                <ul class="actions fit">
-                    <li style="margin-bottom: 0.5rem;"><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button primary fit">Obra Pública</a></li>
-                    <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button primary fit">Contrato de Obra Pública</a></li>
-                </ul>
+            <ul class="actions fit">
+                <li style="margin-bottom: 0.5rem;"><a href="{% url 'content_app:content-detail' 'obra-publica' %}" class="button primary fit">Obra Pública</a></li>
+                <li><a href="{% url 'content_app:content-detail' 'contrato-de-obra-publica' %}" class="button primary fit">Contrato de Obra Pública</a></li>
+            </ul>
                 
         <!-- Section -->
             <section>
@@ -81,7 +92,11 @@
                     
                     {% for important in importants %}
                         <article>
-                            <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            
+                            {% if important.thumbnail_img %}
+                                <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>    
+                            {% endif %}
+
                             <h3>{{ important.title }}</h3>
                             <p style="text-align: justify; text-justify:auto;">{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">
@@ -100,7 +115,9 @@
                     
                     {% for important in importants %}
                         <article>
-                            <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            {% if important.thumbnail_img %}
+                                <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            {% endif %}
                             <h3>{{ important.title }}</h3>
                             <p style="text-align: justify; text-justify:auto;">{{ important.resume | truncatechars:300 }}</p>
                             <ul class="actions">

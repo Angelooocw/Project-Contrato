@@ -22,7 +22,7 @@ class ImportantListView(ListView):
     model = Content
     template_name = 'content/important_list.html'
     context_object_name = 'important_list'
-    paginate_by = 3
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         context = super(ImportantListView, self).get_context_data(**kwargs)
@@ -34,5 +34,5 @@ class ImportantListView(ListView):
         return context
 
     def get_queryset(self):
-        response = Content.objects.get_content('Importante')
+        response = Content.objects.get_content('Importante', False)
         return response
