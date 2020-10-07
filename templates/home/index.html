@@ -109,20 +109,15 @@
 
             <section>
                 <header class="major">
-                    <h2><a href="{% url 'content_app:list-important' %}">Capacitación en Contratos de Obra Pública</a></h2>
+                    <h2>Capacitación en Contratos de Obra Pública</h2>
                 </header>
                 <div class="posts">
                     
-                    {% for important in importants %}
+                    {% for capacitacion in capacitaciones %}
                         <article>
-                            {% if important.thumbnail_img %}
-                                <a href="{% url 'content_app:content-detail' important.slug %}" class="image"><img src="{{ important.thumbnail_img.url }}" alt="" /></a>
+                            {% if capacitacion.thumbnail_img %}
+                                <a href="{{ capacitacion.file.url }}" class="image"><img src="{{ capacitacion.thumbnail_img.url }}" alt="" /></a>
                             {% endif %}
-                            <h3>{{ important.title }}</h3>
-                            <p style="text-align: justify; text-justify:auto;">{{ important.resume | truncatechars:300 }}</p>
-                            <ul class="actions">
-                                <li><a href="{% url 'content_app:content-detail' important.slug %}" class="button">More</a></li>
-                            </ul>
                         </article>
                     {% endfor %}
                 </div>

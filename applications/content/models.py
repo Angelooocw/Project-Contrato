@@ -26,6 +26,7 @@ class Content(TimeStampedModel):
     thumbnail_img = models.ImageField('Imagen', upload_to='Content', blank=True)
     resume = models.TextField('Resumen')
     content = RichTextUploadingField('Contenido')
+    file = models.FileField('documento', upload_to='Capacitacion', blank=True)
     slug = models.SlugField(editable=False, max_length=200)
 
     objects = ContentManager()

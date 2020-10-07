@@ -13,7 +13,10 @@ class ContentManager(models.Manager):
             else:
                 return result.order_by('-created')
         else:
-            return result.order_by('id')
+            if category == 'Capacitación':
+                return result.order_by('-created')[:2]
+            else:
+                return result.order_by('id')
 
     def get_data(self, category):
         print(titulo)
