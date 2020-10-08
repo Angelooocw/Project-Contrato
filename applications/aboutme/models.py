@@ -19,6 +19,7 @@ class Fallo(TimeStampedModel):
 class Publicacion(TimeStampedModel):
     title = models.CharField('titulo', max_length=100)
     picture = models.ImageField('imagen', upload_to='Publicacion')
+    primary = models.BooleanField('principal', default=False)
 
     class Meta:
         verbose_name = 'Publicacion'

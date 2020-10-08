@@ -17,5 +17,5 @@ class AboutMeView(TemplateView):
         context['inspeccion'] = Content.objects.get_content('Inspección Técnica')
         context['info'] = Content.objects.get_content('info_sidebar')
         context['fallos'] = Fallo.objects.all().order_by('-created')
-        context['publicaciones'] = Publicacion.objects.all().order_by('-created')
+        context['publicaciones'] = Publicacion.objects.all().order_by('-created', 'primary')
         return context

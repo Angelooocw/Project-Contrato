@@ -118,17 +118,29 @@
             <!-- <div style="display: flex; flex-wrap: wrap;"> -->
             <div class="row">
                 {% for publicacion in publicaciones %}
-                    <div class="col-4 col-6-small col-4-medium">
-                        <div class="card2">
-                            <img src= "{{ publicacion.picture.url }}" alt="publicacion" style="width:100%">
-                            <div class="container">
-                                <h4><b>{{ publicacion.title }}</b></h4>
-                            </div>
+                  
+                  {% if publicacion.primary %}
+                  <div class="col-6 col-6-small col-6-medium">
+                    <div class="card2">
+                        <img src= "{{ publicacion.picture.url }}" alt="publicacion" style="width:100%">
+                        <div class="container">
+                            <h4><b>{{ publicacion.title }}</b></h4>
                         </div>
                     </div>
-                {% endfor %}
+                  </div>
+                  {% else %}
+                  <div class="col-3 col-6-small col-3-medium">
+                    <div class="card2">
+                        <img src= "{{ publicacion.picture.url }}" alt="publicacion" style="width:100%">
+                        <div class="container">
+                            <h4><b>{{ publicacion.title }}</b></h4>
+                        </div>
+                    </div>
+                  </div>
+                  {% endif %}
                     
-                
+                    
+                {% endfor %}
             </div>
         </section>
     </div>
