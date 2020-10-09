@@ -12,9 +12,13 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <a href="{% url 'content_app:content-detail' 'covid-19' %}"><img src="{% static 'img/COVID.png' %}" class="d-block w-100" alt="..."></a>
+      <div class="carousel-caption d-none d-md-block" style="padding-top: 0%; padding-bottom: 0.2rem;">
+        <a href="{% url 'content_app:content-detail' 'covid-19' %}" class="button primary small">Ver Mas</a>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="{% static 'img/puente4.png' %}" class="d-block w-100" alt="...">
+      
     </div>
     <div class="carousel-item">
       <img src="{% static 'img/hospital2.png' %}" class="d-block w-100" alt="...">

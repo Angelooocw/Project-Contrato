@@ -30,7 +30,7 @@
                     </span>
                 </div>
                 <div class="col-8 col-12-small col-8-medium">
-                    <a href="{% url 'content_app:content-detail' imp.slug %}"><h3>{{ imp.title }}</h3></a>
+                    <h3><a href="{% url 'content_app:content-detail' imp.slug %}">{{ imp.title }}</a></h3>
                     <p>{{ imp.resume | truncatechars:300 }}</p>
                 </div>
             </div>
